@@ -93,6 +93,9 @@ L'app utilizza Supabase come backend per la gestione dei dati e dell'autenticazi
 - `prodotti_community` → raccoglie informazioni sui prodotti e sui prezzi registrati.
 
 Le tabelle sono collegate all'utente tramite `user_id`, con riferimento al sistema di autenticazione di Supabase.
+  
+## Di seguito i dettagli del datatabase utilizzato
+![Schema database](./Screenshot/Database)
 
 ## Stato del progetto
 Il progetto è attualmente in continuo aggiornamento e sviluppo.
@@ -105,10 +108,3 @@ Questo progetto è stato ideato, costruito e migliorato con il supporto dell'AI.
 L'AI è stata utilizzata come strumento di supporto durante lo sviluppo, nella generazione di idee, nel debugging, nella scrittura e revisione di parti del codice e nella definizione di alcune soluzioni implementative.
 
 Le scelte progettuali, l'adattamento delle funzionalità, le modifiche finali e l'organizzazione complessiva del progetto sono state gestite direttamente dall'autore.
-
-## Possibili sviluppi futuri
-- Importazione degli scontrini ancora più guidata.
-- Miglioramento del confronto prezzi tra supermercati.
-- Statistiche più avanzate sulla spesa.
-- Evoluzione della sezione community.
-- Ulteriore ottimizzazione dell'esperienza mobile.
