@@ -9,9 +9,17 @@ L'app permette a ogni utente di accedere al proprio spazio personale tramite aut
 
 L'obiettivo del progetto è trasformare le informazioni presenti su uno scontrino in dati strutturati, consultabili e modificabili, così da poter monitorare gli acquisti, confrontare i prezzi dei prodotti e semplificare la gestione della spesa.
 
+L'app include anche una schermata introduttiva visibile prima del login, pensata per spiegare in modo immediato le principali funzionalità disponibili e il valore del progetto per l'utente.
+
+## Demo live
+La versione online del progetto è disponibile qui:  
+[Visita ScontrinoSmart](https://scontrinosmart.netlify.app/)
+
 ## Funzionalità principali
 
-### Autenticazione utente
+### Accesso e presentazione iniziale
+- Prima dell'autenticazione, l'app mostra una schermata introduttiva con una breve spiegazione delle principali funzionalità disponibili.
+- La schermata iniziale presenta in modo sintetico le aree chiave del progetto: inserimento scontrini, confronto prezzi, prodotti preferiti e lista della spesa.
 - Accesso personale per ogni utente.
 - Gestione separata dei dati tramite account individuale.
 
@@ -33,6 +41,10 @@ L'obiettivo del progetto è trasformare le informazioni presenti su uno scontrin
 - Modifica dei prezzi, delle quantità e di altri dettagli dei prodotti.
 - Aggiunta o rimozione manuale di prodotti all'interno dello scontrino.
 
+### Consultazione scontrini
+- Visualizzazione dello storico degli scontrini salvati.
+- Possibilità di filtrare gli scontrini per anno e mese, per rendere più semplice la consultazione dello storico.
+
 ### Analisi prezzi
 - Storico degli acquisti per prodotto.
 - Confronto dei prezzi registrati nei diversi supermercati.
@@ -48,6 +60,7 @@ L'obiettivo del progetto è trasformare le informazioni presenti su uno scontrin
 - Aggiunta manuale dei prodotti da acquistare.
 - Collegamento dei prodotti salvati alla lista della spesa.
 - Gestione della quantità e dello stato di completamento degli elementi.
+- Suggerimento del supermercato più conveniente per alcuni prodotti presenti nella lista.
 
 ### Dashboard iniziale
 - Panoramica generale con:
@@ -58,15 +71,16 @@ L'obiettivo del progetto è trasformare le informazioni presenti su uno scontrin
   - elenco degli ultimi scontrini inseriti.
 
 ## Flusso di utilizzo
-1. L'utente effettua il login.
-2. Apre la sezione per aggiungere un nuovo scontrino.
-3. Copia il prompt fornito dall'app.
-4. Usa il prompt su un servizio AI esterno di sua scelta.
-5. Scatta o carica lì la foto dello scontrino.
-6. Ottiene un JSON strutturato.
-7. Incolla il JSON nell'app.
-8. Controlla, modifica e salva i dati estratti.
-9. Consulta i prodotti, confronta i prezzi e aggiorna preferiti o lista della spesa.
+1. L'utente apre l'app e visualizza una breve panoramica delle funzionalità principali.
+2. Effettua il login.
+3. Apre la sezione per aggiungere un nuovo scontrino.
+4. Copia il prompt fornito dall'app.
+5. Usa il prompt su un servizio AI esterno di sua scelta.
+6. Scatta o carica lì la foto dello scontrino.
+7. Ottiene un JSON strutturato.
+8. Incolla il JSON nell'app.
+9. Controlla, modifica e salva i dati estratti.
+10. Consulta i prodotti, confronta i prezzi e aggiorna preferiti o lista della spesa.
 
 ## Uso dell'AI
 L'app **non integra direttamente un modello AI** tramite API o servizi interni.
@@ -93,9 +107,11 @@ L'app utilizza Supabase come backend per la gestione dei dati e dell'autenticazi
 - `prodotti_community` → raccoglie informazioni sui prodotti e sui prezzi registrati.
 
 Le tabelle sono collegate all'utente tramite `user_id`, con riferimento al sistema di autenticazione di Supabase.
+
+Una parte importante del progetto è la progettazione del database, pensato per gestire in modo separato utenti, scontrini, prodotti, preferiti e lista della spesa.
   
 ## Di seguito i dettagli del datatabase utilizzato
-![Schema database](./Screenshot/Database)
+![Schema database](./Screenshot/Database.png)
 
 ## Stato del progetto
 Il progetto è attualmente in continuo aggiornamento e sviluppo.
