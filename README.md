@@ -105,7 +105,7 @@ ScadenzeTracker aiuta gli utenti a tenere traccia delle scadenze dei prodotti al
 
 Condivide lo stesso progetto Supabase di ScontrinoSmart: chi è già registrato su una delle due app può accedere direttamente anche all'altra senza una nuova registrazione.
 
-**Demo live:** [scontrinosmart.netlify.app](https://scadenzetracker.netlify.app/)
+**Demo live:** [scadenzetracker.netlify.app](https://scadenzetracker.netlify.app/)
 
 ### Funzionalità principali
 
