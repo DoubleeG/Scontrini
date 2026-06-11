@@ -6,10 +6,10 @@ CasaSmart è un ecosistema di web app pensate per semplificare la gestione della
 
 ## App disponibili
 
-| App | File | Scopo |
-|-----|------|-------|
-| 🧾 ScontrinoSmart | `ScontrinoSmart.html`   | Digitalizza scontrini, confronta prezzi, gestisce la lista della spesa |
-| ⏰ ScadenzeTracker | `ScadenzeTracker.html` | Traccia le scadenze dei prodotti alimentari |
+| App               | File                   | Scopo                                                                  |
+| ----------------- | ---------------------- | ---------------------------------------------------------------------- |
+| 🧾 ScontrinoSmart  | `ScontrinoSmart.html`  | Digitalizza scontrini, confronta prezzi, gestisce la lista della spesa |
+| ⏰ ScadenzeTracker | `ScadenzeTracker.html` | Traccia le scadenze dei prodotti alimentari                            |
 
 ---
 
@@ -30,43 +30,51 @@ L'app include anche una schermata introduttiva visibile prima del login, pensata
 ### Funzionalità principali
 
 #### Accesso e presentazione iniziale
+
 - Prima dell'autenticazione, l'app mostra una schermata introduttiva con una breve spiegazione delle principali funzionalità disponibili.
 - La schermata iniziale presenta in modo sintetico le aree chiave del progetto: inserimento scontrini, confronto prezzi, prodotti preferiti e lista della spesa.
 - Accesso personale per ogni utente, con gestione separata dei dati tramite account individuale.
 
 #### Inserimento scontrini
+
 - Aggiunta di un nuovo scontrino tramite JSON.
 - Presenza di un prompt predefinito da copiare e usare su qualsiasi AI esterna.
 - L'utente non carica la foto dello scontrino direttamente nell'app: la foto viene scattata o caricata su un servizio AI esterno, che restituisce un JSON strutturato da copiare e incollare successivamente in ScontrinoSmart.
 - Possibilità di inserimento e revisione manuale dei dati.
 
 #### Gestione prodotti
+
 - Visualizzazione dei prodotti estratti dagli scontrini.
 - Salvataggio di informazioni come nome prodotto, prezzo, prezzo scontato, quantità e prezzo per unità o per kg quando disponibile.
 - Assegnazione automatica iniziale delle categorie tramite AI esterna, con possibilità di modifica completa da parte dell'utente.
 - Modifica del nome del prodotto e della categoria in qualsiasi momento.
 
 #### Modifica scontrino
+
 - Apertura dello scontrino originale associato a un prodotto.
 - Modifica di supermercato, data, totale e prodotti contenuti nello scontrino.
 - Modifica dei prezzi, delle quantità e di altri dettagli dei prodotti.
 - Aggiunta o rimozione manuale di prodotti all'interno dello scontrino.
 
 #### Consultazione scontrini
+
 - Visualizzazione dello storico degli scontrini salvati.
 - Possibilità di filtrare gli scontrini per anno e mese, per rendere più semplice la consultazione dello storico.
 
 #### Analisi prezzi
+
 - Storico degli acquisti per prodotto.
 - Confronto dei prezzi registrati nei diversi supermercati.
 - Evidenza del prezzo minimo e massimo rilevato.
 - Visualizzazione del miglior prezzo disponibile per prodotto.
 
 #### Preferiti
+
 - Sezione dedicata ai prodotti preferiti.
 - Possibilità di salvare rapidamente i prodotti usati più spesso.
 
 #### Lista della spesa
+
 - Creazione di una lista della spesa personalizzata.
 - Aggiunta manuale dei prodotti da acquistare.
 - Collegamento dei prodotti salvati alla lista della spesa.
@@ -74,6 +82,7 @@ L'app include anche una schermata introduttiva visibile prima del login, pensata
 - Suggerimento del supermercato più conveniente per alcuni prodotti presenti nella lista.
 
 #### Dashboard iniziale
+
 - Panoramica generale con: numero di scontrini salvati, spesa totale registrata, numero di prodotti unici, numero di supermercati presenti nello storico ed elenco degli ultimi scontrini inseriti.
 
 ### Flusso di utilizzo
@@ -110,6 +119,7 @@ Condivide lo stesso progetto Supabase di ScontrinoSmart: chi è già registrato 
 ### Funzionalità principali
 
 #### Tab Prodotti — schermata principale
+
 - Form di inserimento con: nome, data scadenza, categoria, numero di pezzi, quantità prodotto e unità di misura (gr / kg / lt / ml / pz).
 - **Classificazione automatica della categoria** — al blur del campo nome, una funzione locale basata su centinaia di parole chiave seleziona automaticamente la categoria più adatta, senza chiamate API esterne. Accanto alla label appare un badge `✦ auto`. La categoria può essere modificata manualmente in qualsiasi momento.
 - **4 contatori colorati** aggiornati in tempo reale: Scaduti / Scadenza entro 3 giorni / Scadenza entro 7 giorni / Oltre 7 giorni.
@@ -119,17 +129,21 @@ Condivide lo stesso progetto Supabase di ScontrinoSmart: chi è già registrato 
 - **Archiviazione automatica** dopo 14 giorni dalla scadenza, all'apertura dell'app.
 
 #### Tab Storico
+
 - Top 5 prodotti più scaduti con barra proporzionale.
 - Lista completa dei prodotti archiviati con: data rimozione, giorni di ritardo alla rimozione (verde / arancione / rosso), categoria e quantità.
 
 #### Notifiche in-app
+
 - **Banner al login** — ogni volta che si apre l'app, un banner colorato appare in cima alla lista prodotti. Mostra una riga rossa per i prodotti già scaduti (con i nomi) e una arancione per quelli in scadenza entro 3 giorni. Ogni riga ha una X per chiuderla.
 
 #### Web Push
+
 - Al primo accesso, un modal overlay chiede il permesso per le notifiche di sistema.
 - Funziona su desktop; su mobile richiede che l'app sia servita via HTTPS (es. Netlify).
 
 #### Tab Impostazioni
+
 - Toggle on/off per le notifiche push.
 - Riga di stato che mostra se le notifiche sono Attive / Disattive / Bloccate dal browser.
 - Sezione account con email dell'utente e bottone logout.
@@ -158,24 +172,29 @@ Condivide lo stesso progetto Supabase di ScontrinoSmart: chi è già registrato 
 L'app utilizza Supabase come backend per la gestione dei dati e dell'autenticazione.
 
 ### Tabelle di ScontrinoSmart
+
 - `scontrini` → contiene supermercato, data, totale e prodotti associati allo scontrino.
 - `preferiti` → memorizza i prodotti preferiti dell'utente.
 - `lista_spesa` → salva i prodotti da acquistare, con quantità e stato di completamento.
 - `prodotti_categorie` → associa i prodotti alle categorie personalizzate.
-- `prodotti_community` → raccoglie informazioni sui prodotti e sui prezzi registrati.
+- `prodotti_community` → raccoglie informazioni sui prodotti e sui prezzi registrati da tutti gli utenti.
+- `merge_history` → tiene traccia della cronologia di unione dei prodotti (colonne: `id`, `user_id`, `nome_finale`, `nomi_originali`, `created_at`).
+- `push_subscriptions` → salva le sottoscrizioni alle notifiche Web Push per ogni utente (colonne: `id`, `user_id`, `subscription` come JSON, `created_at`).
 
 ### Tabelle di ScadenzeTracker
-- `prodotti_scadenze` → colonne: `id`, `user_id`, `nome`, `data_scadenza`, `categoria`, `stato` (`attivo` / `scaduto_eliminato` / `eliminato`), `rimosso_il`, `giorni_scaduto_al_momento`, `quantita` (default 1), `quantita_prodotto`, `unita_misura` (gr / kg / lt / ml / pz), `created_at`.
+
+- `prodotti_scadenze` → colonne: `id`, `user_id`, `nome`, `data_scadenza`, `categoria`, `stato` (`attivo` / `scaduto_eliminato` / `eliminato`), `rimosso_il`, `giorni_scaduto_al_momento`, `quantita` (default 1), `quantita_prodotto`, `unita_misura` (gr / kg / lt / ml / pz), `banner_chiuso_il`, `created_at`.
 
 Tutte le tabelle sono collegate all'utente tramite `user_id`, con riferimento al sistema di autenticazione di Supabase.
 
-![Schema database](./Screenshot/Database.png)
+[![Schema database](https://github.com/Gallo-Giovanni/CasaSmart/raw/main/Screenshot/Database.png)](https://github.com/Gallo-Giovanni/CasaSmart/blob/main/Screenshot/Database.png)
 
 ---
 
 ## Design
 
 Entrambe le app condividono lo stesso sistema visivo:
+
 - Tema scuro con `background: #0f0f0f` e accent viola `#6C63FF`.
 - Schermata di login con feature card introduttive e card "Account condiviso" che menziona entrambe le app.
 
